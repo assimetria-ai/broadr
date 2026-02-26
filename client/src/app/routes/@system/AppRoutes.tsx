@@ -14,6 +14,9 @@ const NotFoundPage = lazy(() =>
 const AuthPage = lazy(() =>
   import('../../pages/static/@system/AuthPage').then((m) => ({ default: m.AuthPage }))
 )
+const RegisterPage = lazy(() =>
+  import('../../pages/static/@system/RegisterPage').then((m) => ({ default: m.RegisterPage }))
+)
 const ForgotPasswordPage = lazy(() =>
   import('../../pages/static/@system/ForgotPasswordPage').then((m) => ({ default: m.ForgotPasswordPage }))
 )
@@ -156,9 +159,11 @@ export function AppRoutes() {
         {/* 2FA challenge — shown after password login when TOTP is required */}
         <Route path="/2fa/verify" element={<TwoFactorVerifyPage />} />
 
-        {/* Legacy auth paths → unified /auth */}
+        {/* Register — standalone registration page */}
+        <Route path="/register" element={<RegisterPage />} />
+
+        {/* Aliases — redirect legacy paths */}
         <Route path="/login" element={<Navigate to="/auth" replace />} />
-        <Route path="/register" element={<Navigate to="/auth?tab=register" replace />} />
         <Route path="/signup" element={<Navigate to="/register" replace />} />
 
         {/* Legacy /dashboard path → authenticated area */}
