@@ -15,7 +15,7 @@ import {
 import { Button } from '../../../components/@system/ui/button'
 import { Header } from '../../../components/@system/Header/Header'
 import { PageLayout } from '../../../components/@system/layout/PageLayout'
-import api from '../../../lib/@system/api'
+import { api } from '../../../lib/@system/api'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
